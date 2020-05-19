@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import SavedList from './Movies/SavedList';
 
 const App = () => {
@@ -28,8 +28,10 @@ const App = () => {
   return (
     <div>
       <SavedList list={savedList} />
-      <Route path="/" component={''}></Route>
-      <Route path="/" component={''}></Route>
+
+        <Route path="./Movies/SavedList" component={movieList} />
+      
+        <Route path={`/movies/:movieID`} component={Movie} />
     </div>
   );
 };
